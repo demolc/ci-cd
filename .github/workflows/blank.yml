@@ -28,4 +28,16 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo tests
+
+      - name : deploy on ftp
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_URL }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          server-dir: www/dwwm/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            README.md
         
