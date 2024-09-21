@@ -32,5 +32,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: say hello
-        run: echo hello
+        run: wtf
 
