@@ -28,9 +28,13 @@ jobs:
       # name: github-pages
       # url: ${{ steps.deployment.outputs.page_url }}
     # runs-on: ubuntu-latest
-    # steps:
-      # - name: Checkout
-        # uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: pwd
+        run: pwd
+      - name: ls
+        run: ls
       # - name: 📂 Sync files
         # uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         # with:
@@ -42,20 +46,5 @@ jobs:
             # **/.git*
             # **/.git*/**
             # README.md
-  sonarqube:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        # Disabling shallow clones is recommended for improving the relevancy of reporting
-        fetch-depth: 0
-    - name: info
-      run: pwd
-      
-    - name: info2
-      run: ls
-    - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v4.1.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
-      env:
-        SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
+ 
       
